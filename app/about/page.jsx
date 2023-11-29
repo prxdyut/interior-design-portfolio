@@ -4,13 +4,13 @@ export default function About() {
     return (
         <div>
             <div className="bg-[url('/image/about.jpg')] bg-center bg-cover ">
-                <h1 className="container py-32 text-6xl font-semibold tracking-widest text-center text-white lg:py-64 lg:text-left ">WHO ARE WE?</h1>
+                <h1 className="container py-32 text-6xl font-semibold tracking-widest text-center text-white lg:py-64 lg:text-left text-classico">WHO ARE WE?</h1>
 
             </div>
             <div className="container ">
                 <div className="py-4 lg:py-14">
                     <h2 className="p-4 text-3xl font-semibold text-center lg:p-20 lg:text-5xl">We have great idea & Interior Design</h2>
-                    <p className="text-2xl font-medium lg:w-1/2">
+                    <p className="text-2xl font-medium ">
                         The Digimax interior design company is a company that provides interior design services for homes, offices, apartments, and others. We provide the best interior design services for you. We have a team that is experienced in the field of interior.
                     </p>
                 </div>

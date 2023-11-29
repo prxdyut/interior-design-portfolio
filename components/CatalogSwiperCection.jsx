@@ -12,10 +12,10 @@ export default function CatalogSwiperSection() {
         <div className="py-8 lg:py-28">
             <div className="container grid pb-8 lg:grid-cols-2">
                 <div className="text-left ">
-                    <h1 className="py-4 text-4xl font-medium lg:text-6xl lg:py-0">Modern Classic</h1>
+                    <h1 className="py-4 text-4xl font-medium lg:text-6xl lg:py-0 text-classico">Modern Classic</h1>
                 </div>
                 <div>
-                    <h2 className="pb-6 text-xl font-bold tracking-wider">LUXURY DECOR TO CREATE COMFORT IN OUR HOME</h2>
+                    <h2 className="pb-6 text-xl font-bold tracking-wider ">LUXURY DECOR TO CREATE COMFORT IN OUR HOME</h2>
                     <div className="grid grid-cols-2 text-gray-500 gap-x-8">
                         <div>
                             <p>

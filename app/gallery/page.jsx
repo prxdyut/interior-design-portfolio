@@ -4,9 +4,7 @@ export default function Gallery() {
 
     return (
 
-        <div class="container py-10 grid grid-cols-2 md:grid-cols-4 gap-4">
-
-
+        <div class="container py-10 grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
 
             <div class="flex flex-col gap-4">
                 <div>

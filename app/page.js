@@ -9,10 +9,10 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <CompanySection />
       <AboutComponent />
       <CatalogueSection />
       <CatalogSwiperSection />
+      <CompanySection />
       <ContactSection />
     </>
   );
