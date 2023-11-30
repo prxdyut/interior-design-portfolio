@@ -9,7 +9,6 @@ const nav = [
   { href: "/", label: "HOME" },
   { href: "/projects", label: "PROJECTS" },
   { href: "/about", label: "ABOUT US" },
-  { href: "/gallery", label: "GALLERY" },
 ];
 
 export default function Navigation({ isTransparentHeader }) {
@@ -77,13 +76,23 @@ export default function Navigation({ isTransparentHeader }) {
           </Link>
         ))}
       </div>
-      <Fade direction="right" delay={2000} triggerOnce>
-        <div className="hidden lg:block border-2 border-white p-0.5">
-          <button className="flex bg-white py-2 px-4 m-1 ">
-            Contact Us <TbArrowUpRight className="ml-2 w-5 h-5" />
-          </button>
-        </div>
-      </Fade>
+      <Link href={"/contact/"}>
+        <Fade direction="right" delay={2000} triggerOnce>
+          <div
+            className={`hidden transition-all duration-500 lg:block border-2 ${
+              isTransparentHeader ? "border-white" : "border-black"
+            } p-0.5`}
+          >
+            <button
+              className={`flex transition-all duration-500  m-1  ${
+                isTransparentHeader ? "bg-white py-2 px-4" : "bg-black text-sm text-white py-1 px-2"
+              } `}
+            >
+              Contact Us <TbArrowUpRight className="ml-2 w-5 h-5" />
+            </button>
+          </div>
+        </Fade>
+      </Link>
     </>
   );
 }

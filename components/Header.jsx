@@ -5,6 +5,7 @@ import logo from "../public/logo-wide.svg";
 import Navigation from "./Navigation";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export default function Header() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -45,13 +46,14 @@ export default function Header() {
           isTransparentHeader ? "py-8" : "py-2"
         }`}
       >
+        <Link href={'/'}>
         <Image
           src={logo}
           alt="logo"
           className={`transition-all ${
             isTransparentHeader ? "h-16 w-fit" : "h-10 w-fit"
           }`}
-        />
+        /></Link>
         <Navigation isTransparentHeader={isTransparentHeader} />
       </div>
     </div>

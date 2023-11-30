@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Fade, Slide, Zoom } from "react-awesome-reveal";
+import { Fade, Zoom } from "react-awesome-reveal";
 import { TbArrowUpRight } from "react-icons/tb";
 
 export default function HeroSection() {
