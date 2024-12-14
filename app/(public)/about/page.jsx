@@ -4,7 +4,7 @@ export default function About() {
     return (
         <div>
             <div className="bg-[url('/image/about.jpg')] bg-center bg-cover ">
-                <h1 className="container py-32 text-6xl font-semibold tracking-widest text-center text-white lg:py-64 lg:text-left text-classico">WHO ARE WE?</h1>
+                <h1 className="container py-20  text-6xl font-semibold tracking-widest text-center text-white lg:py-64 lg:text-left text-classico">WHO ARE WE?</h1>
 
             </div>
             <div className="container ">
@@ -34,7 +34,7 @@ export default function About() {
 
                     </div>
                 </div>
-                <div className="lg:py-20">
+                {/* <div className="lg:py-20">
                     <div className="pt-8 pb-4">
                         <h1 className="text-4xl font-bold tracking-wider text-center">TEAM</h1>
                     </div>
@@ -67,7 +67,7 @@ export default function About() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div >
     )

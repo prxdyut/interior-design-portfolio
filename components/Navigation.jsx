@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import React from "react";
 import { useState } from "react";
 import { Fade, Slide } from "react-awesome-reveal";
 import { TbArrowUpRight } from "react-icons/tb";
@@ -17,24 +18,36 @@ export default function Navigation({ isTransparentHeader }) {
 
   return (
     <>
-      <button className="block lg:hidden" onClick={() => setOpen(!isOpen)}>
-        <svg
-          className={`fill-current h-3 w-3 ${isOpen ? "hidden" : "block"}`}
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-        </svg>
-        <svg
-          className={`fill-current h-3 w-3 ${isOpen ? "block" : "hidden"}`}
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" />
-        </svg>
-      </button>
+      {!isTransparentHeader && (
+        <React.Fragment key={`${isOpen}`}>
+          <div className=" flex justify-end">
+          <button
+            className="block lg:hidden  "
+            onClick={() => setOpen(!isOpen)}
+          >
+            <svg
+              className={`fill-current h-5 w-5 animate-in fade-in zoom-in ${
+                isOpen ? "hidden" : "block"
+              }`}
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+            <svg
+              className={`fill-current h-5 w-5 animate-in fade-in  zoom-in ${
+                isOpen ? "block" : "hidden"
+              }`}
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" />
+            </svg>
+          </button></div>
+        </React.Fragment>
+      )}
       <nav
-        className={`hidden lg:flex gap-x-6 transition text-sm ease-in duration-300 ${
+        className={`hidden lg:flex gap-x-6 transition text-sm ease-in justify-center items-center duration-300 ${
           isTransparentHeader ? "opacity-0" : ""
         }`}
       >
@@ -52,7 +65,9 @@ export default function Navigation({ isTransparentHeader }) {
         ))}
       </nav>
       <div
-        className={`transition-all duration-500 fixed ease-in-out inset-0 z-30 bg-black bg-opacity-50 w-screen opacity-0 ${
+        className={`${
+          !isOpen && "absolute"
+        } transition-all  duration-500 fixed ease-in-out inset-0 z-30 bg-black bg-opacity-50 w-screen opacity-0 ${
           isOpen ? "opacity-100" : "hidden"
         }`}
         onClick={() => setOpen(false)}
@@ -76,23 +91,27 @@ export default function Navigation({ isTransparentHeader }) {
           </Link>
         ))}
       </div>
-      <Link href={"/contact/"}>
-        <Fade direction="right" delay={2000} triggerOnce>
-          <div
-            className={`hidden transition-all duration-500 lg:block border-2 ${
-              isTransparentHeader ? "border-white" : "border-black"
-            } p-0.5`}
-          >
-            <button
-              className={`flex transition-all duration-500  m-1  ${
-                isTransparentHeader ? "bg-white py-2 px-4" : "bg-black text-sm text-white py-1 px-2"
-              } `}
+      {!isTransparentHeader && <div className="  hidden lg:flex justify-end">
+        <Link href={"/contact/"} className=" w-fit">
+          <Fade direction="right" delay={2000} triggerOnce>
+            <div
+              className={`hidden transition-all duration-500 lg:block border-2 ${
+                isTransparentHeader ? "border-white" : "hidden"
+              } p-0.5`}
             >
-              Contact Us <TbArrowUpRight className="ml-2 w-5 h-5" />
-            </button>
-          </div>
-        </Fade>
-      </Link>
+              <button
+                className={`flex transition-all duration-500  m-1  ${
+                  isTransparentHeader
+                    ? "bg-white py-2 px-4"
+                    : "hidden"
+                } `}
+              >
+                Contact Us <TbArrowUpRight className="ml-2 w-5 h-5" />
+              </button>
+            </div>
+          </Fade>
+        </Link>
+      </div>}
     </>
   );
 }

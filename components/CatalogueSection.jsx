@@ -79,18 +79,21 @@ export default function CatalogueSection() {
           Empowering innovation through cutting-edge expertise in delivering
           solutions that redefine excellence.
         </p>
-        <div className="grid grid-cols-2">
-          <div className="grid gap-8 lg:gap-0 divide-gray-300   md:grid-cols-2 mt-2">
+        <div className="grid grid-cols-1  lg:grid-cols-2">
+          <div className="grid gap-8 lg:gap-0 divide-gray-300  grid-cols-1 md:grid-cols-2 mb-8 lg:mb-0 my-2 ">
             {items.map((item, index) => (
               <div
                 key={index}
                 className="relative overflow-hidden group"
                 onMouseEnter={() => sethover(index)}
                 onMouseLeave={() => sethover(active)}
-                onClick={() => setActive(index)}
+                onClick={() => {
+                  setActive(index);
+                  document.getElementById("featuresContent").scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start'});
+                }}
               >
                 <div
-                  className={`top-0 py-2 lg:my-2 cursor-pointer  ${
+                  className={`top-0 lg:py-2 lg:my-2 cursor-pointer  ${
                     active == index
                       ? "text-black"
                       : hover == index
@@ -106,7 +109,6 @@ export default function CatalogueSection() {
                         ? "font-semibold"
                         : "font-medium"
                     }`}
-                    href=""
                   >
                     {item.title}
                   </p>
@@ -118,16 +120,34 @@ export default function CatalogueSection() {
             <React.Fragment key={`${hover}`}>
               <img
                 src={items[hover].image}
-                className="h-[50vh] rounded-lg animate-in fade-in zoom-in duration-500"
+                className="w-[100vw] lg:h-[50vh]  rounded-lg animate-in fade-in zoom-in duration-500"
               />
             </React.Fragment>
           </div>
         </div>
       </div>
       <React.Fragment key={`${active}`}>
-        <div className="py-8 my-8 mx-auto flex flex-col items-center animate-in fade-in duration-500">
-          <p className=" mb-10 mt-8 text-center w-100 lg:w-2/3 text-3xl font-bold text-gray-900 flex justify-between">
-          <FaArrowLeft onClick={() => setActive(active - 1 < 0 ? items.length -1 : active -1 )} /> {items[active].title}{" "} <FaArrowRight  onClick={() => setActive(active + 1 < items.length ? active + 1 : 0)}/>
+        <div
+          id="featuresContent"
+          style={{ scrollMargin: '5rem' }}
+          className=" py-8 my-8 mx-auto flex flex-col items-center animate-in fade-in duration-1000"
+        >
+          <p className=" mb-10 mt-8 text-center w-[100vw] px-8 lg:w-2/3 text-xl lg:text-3xl font-bold text-gray-900 flex justify-between">
+            <FaArrowLeft
+              size={20}
+              className="cursor-pointer"
+              onClick={() =>
+                setActive(active - 1 < 0 ? items.length - 1 : active - 1)
+              }
+            />{" "}
+            {items[active].title}{" "}
+            <FaArrowRight
+              size={20}
+              className="cursor-pointer"
+              onClick={() =>
+                setActive(active + 1 < items.length ? active + 1 : 0)
+              }
+            />
           </p>
           <p className=" mb-8 text-center w-100 lg:w-2/3  text-gray-500">
             {items[active].description +
